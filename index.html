@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | Tibetan Youth in Medicine</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Keep hero color consistent */
+    .home-hero {
+      background-color: #6B91B3;
+      padding: 4rem 0;
+      text-align: center;
+      color: white;
+      position: relative; /* Needed for absolute ornaments */
+      overflow: hidden;
+    }
+    .home-hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2; /* Above ornaments */
+    }
+    .hero-ornament {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      opacity: 0.85;
+    }
+
+
+    /* Buttons */
+    .btn-inline {
+      background: white;
+      color: var(--primary-dark);
+      border: 1px solid var(--primary-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.45rem 1rem;
+      border-radius: 20px;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      display: inline-block;
+    }
+    .btn-inline:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-row {
+      margin-top: .9rem;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .promise-line {
+      font-style: italic;
+      letter-spacing: 1px;
+      font-size: 1.05rem;
+      opacity: .9;
+      margin: .6rem 0 0;
+      padding: .4rem 1rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">TYM</a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="support.html">Support Us</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Hero -->
+  <header class="home-hero">
+    <!-- Ornaments -->
+    <img src="corner_ornament.svg" alt="" class="hero-ornament left">
+    <img src="corner_ornament.svg" alt="" class="hero-ornament right">
+    <img src="corner_ornament.svg" alt="" class="hero-ornament bottomleft">
+    <img src="corner_ornament.svg" alt="" class="hero-ornament bottomright">
+
+    <div class="container">
+      <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">
+        Tibetan Youth in Medicine⚕️
+      </h1></br>
+      <blockquote class="hero-quote" style="margin: 0;">
+        <p id="quoteText" style="margin: 0;">
+          “When we lift one another, we rise together.”
+        </p>
+        <cite id="quoteAuthor" style="display: block; margin-top: 0.25rem; font-style: normal;">
+          — TYM Community
+        </cite>
+      </blockquote>
+    </div>
+  </header>
+
+  <!-- Who Are We -->
+  <section class="section">
+    <div class="container">
+      <div class="card-soft" style="max-width: 980px; margin: 0 auto; text-align: center;">
+        <h2 class="center" style="margin-bottom: .2rem;">Who Are We?</h2>
+
+        <!-- promise -->
+        <p class="center promise-line">
+          <span style="color: var(--primary-dark);">Mentorship</span> &nbsp;·&nbsp; 
+          <span style="color: var(--accent2);">Guidance</span> &nbsp;·&nbsp; 
+          <span style="color: var(--primary);">Community</span>
+        </p>
+
+        <!-- intro -->
+        <p class="center" style="max-width: 760px; margin: .7rem auto 0; line-height: 1.65;">
+          Tibetan Youth in Medicine is a student-led community creating a welcoming space for Tibetan
+          students curious about healthcare. We’re starting small and focused: meet people, share resources,
+          and make it easier to take the next step.
+        </p>
+
+        <!-- actions -->
+        <div class="center btn-row">
+          <a href="mission.html" class="btn-inline">Read Our Mission</a>
+          <a href="get-involved.html" class="btn-inline">Join the Community</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© 2025 TYM. All rights reserved.</p>
+      <div class="social-links">
+        <a href="mailto:tibetanyouthinmedicine@gmail.com" target="_blank" aria-label="Email">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail logo">
+        </a>
+        <a href="https://instagram.com/tibetanyouthinmedicine" target="_blank" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Rotating quotes
+    const quotes = [
+      { text: "When we lift one another, we rise together.", author: "TYM Community" },
+      { text: "Every path into medicine begins with a single step and a circle of support.", author: "TYM Community" },
+      { text: "Courage grows where mentorship and opportunity meet.", author: "TYM Community" }
+    ];
+    (function rotateQuotes() {
+      let i = 0;
+      const textEl = document.getElementById("quoteText");
+      const authorEl = document.getElementById("quoteAuthor");
+      function showNext() {
+        i = (i + 1) % quotes.length;
+        textEl.classList.add("fade-out");
+        authorEl.classList.add("fade-out");
+        setTimeout(() => {
+          textEl.textContent = `“${quotes[i].text}”`;
+          authorEl.textContent = `— ${quotes[i].author}`;
+          textEl.classList.remove("fade-out");
+          authorEl.classList.remove("fade-out");
+        }, 300);
+      }
+      setInterval(showNext, 6000);
+    })();
+  </script>
+</body>
+</html>
