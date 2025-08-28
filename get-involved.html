@@ -35,43 +35,42 @@
 
   <!-- Ways to Engage -->
   <section class="section">
-    <div class="container engage-grid">
-      <!-- Volunteer -->
-      <article class="gi-card">
-        <h3><span class="gi-icon-inline">🤝</span> Volunteer at Events</h3>
+  <div class="container engage-grid">
 
-        <p>
-          We welcome volunteers for both virtual and in-person events. We will post opportunities on the
-          <a href="events.html">Events</a> page, and you can sign up for specific roles and times there.
-        </p>
-        <a class="btn btn-dark" href="events.html">See Opportunities</a>
-      </article>
+    <!-- Volunteer -->
+    <article class="card">
+      <h3><span class="icon">🤝</span> Volunteer at Events</h3>
+      <p>
+        We welcome volunteers for both virtual and in-person events. We will post opportunities on the
+        <a href="events.html">Events</a> page, and you can sign up for specific roles and times there.
+      </p>
+      <a class="btn btn-dark" href="events.html">See Opportunities</a>
+    </article>
 
-      <!-- General Member -->
-      <article class="gi-card">
-        <h3><span class="gi-icon-inline">🌱</span> Join as a General Member</h3>
+    <!-- General Member -->
+    <article class="card">
+      <h3><span class="icon">🌱</span> Join as a General Member</h3>
+      <p>
+        Becoming a member is simple. No extra requirements—just sign up. You’ll get newsletters,
+        invites to info sessions and meetings, and early access to new programs.
+      </p>
+      <!-- Replace # with your form link -->
+      <a class="btn btn-dark" href="#" target="_blank">Become a Member</a>
+    </article>
 
-        <p>
-          Becoming a member is simple. No extra requirements—just sign up. You’ll get newsletters,
-          invites to info sessions and meetings, and early access to new programs.
-        </p>
-        <!-- Replace # with your form link (Google Form, Airtable, etc.) -->
-        <a class="btn btn-dark" href="#" target="_blank">Become a Member</a>
-      </article>
+    <!-- Board Applications -->
+    <article class="card">
+      <h3><span class="icon">🧭</span> Apply to Join the Board</h3>
+      <p>
+        We are accepting board applications and would love your help with planning, outreach, and programming.
+        If you’re ready to lead and learn, we want to hear from you.
+      </p>
+      <!-- Replace # with your application link -->
+      <a class="btn btn-dark" href="#" target="_blank">Board Application</a>
+    </article>
 
-      <!-- Board Applications -->
-      <article class="gi-card">
-        <h3><span class="gi-icon-inline">🧭</span> Apply to Join the Board</h3>
-
-        <p>
-          We are accepting board applications and would love your help with planning, outreach, and programming.
-          If you’re ready to lead and learn, we want to hear from you.
-        </p>
-        <!-- Replace # with your application link -->
-        <a class="btn btn-dark" href="#" target="_blank">Board Application</a>
-      </article>
-    </div>
-  </section>
+  </div>
+</section>
 <!-- Newsletter / Info Sessions -->
 <section class="section alt">
   <div class="container newsletter-wrap" 
@@ -105,34 +104,43 @@
         </div>
 
         <!-- Right Column: Newsletter Form -->
-        <div style="flex:1; padding-left:30px;">
-          <form
-  action="https://formspree.io/f/mzzazewy"
-  method="POST"></form>
-            <div>
-              <label for="email" style="font-weight:bold;">Email Address</label><br>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                placeholder="Enter your email" 
-                required 
-                style="padding:12px; width:100%; border:1px solid #ccc; border-radius:6px; margin-top:5px;"
-              >
-            </div>
-
-            <div>
-              <input type="checkbox" id="consent" name="consent" required>
-              <label for="consent">I agree to receive monthly updates and allow you to use my email for newsletters.</label>
-            </div>
-
-            <button type="submit" class="btn btn-dark" 
-                    style="padding:12px 20px; border-radius:6px; font-size:16px; cursor:pointer; align-self:flex-start;">
-              Subscribe
-            </button>
-        </div>
-      </div>
+<div style="flex:1; padding-left:30px;">
+  <form
+    id="newsletter-form"
+    action="https://formspree.io/f/mzzazewy"
+    method="POST"
+  >
+    <div>
+      <label for="email" style="font-weight:bold;">Email Address</label><br>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        placeholder="Enter your email" 
+        required 
+        style="padding:12px; width:100%; border:1px solid #ccc; border-radius:6px; margin-top:5px;"
+      >
     </div>
+
+    <div style="margin-top:10px;">
+      <input type="checkbox" id="consent" name="consent" required>
+      <label for="consent">
+        I agree to receive monthly updates and allow you to use my email for newsletters.
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-dark" 
+            style="padding:12px 20px; border-radius:6px; font-size:16px; cursor:pointer; align-self:flex-start; margin-top:10px;">
+      Subscribe
+    </button>
+  </form>
+
+  <!-- Success message placeholder -->
+  <div id="success-message" style="display:none; margin-top:15px; color:green; font-weight:bold;">
+    ✅ Thank you! You’ve successfully subscribed.
+  </div>
+</div>
+    
   </div>
 </section>
 

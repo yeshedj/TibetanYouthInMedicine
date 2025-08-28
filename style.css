@@ -1,458 +1,188 @@
 /* ==================== THEME ==================== */
-:root{
-    --primary:#6B91B3;         /* main */
-    --primary-light:#89A9C4;   /* hover / accents */
-    --primary-dark:#547997;    /* headings / buttons */
-    --accent1:#A3BDD3;         /* badges / soft bg */
-    --accent2:#4C6C85;         /* footer / strong text */
-    --text-dark:#2f3a4a;
-    --bg:#f5faff;
-    --card:#ffffff;
-    --radius:14px;
-    --radius-lg:18px;
-    --shadow-sm:0 2px 12px rgba(0,0,0,.06);
-    --shadow-md:0 6px 18px rgba(0,0,0,.10);
-  }
-  
-  /* ==================== RESET / BASE ==================== */
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    font-family:"Times New Roman", Times, serif;
-    background:var(--bg);
-    color:var(--text-dark);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
-  img{max-width:100%;display:block}
-  a{color:inherit;text-decoration:none}
-  
-  /* ==================== LAYOUT ==================== */
-  .container{width:92%;max-width:1100px;margin:auto}
-  .section{padding:3rem 0}
-  .section.alt{background:#eef6ff}
-  .section-title{color:var(--primary-dark);text-align:center;margin-bottom:1rem}
-  .center{text-align:center}
-  .narrow{max-width:780px;margin-left:auto;margin-right:auto}
-  .pad-top{margin-top:1rem}
-  
-  /* Grids */
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(12,minmax(0,1fr));
-    gap:1.1rem;
-  }
-  .grid-2{
-    display:grid;
-    grid-template-columns:1.25fr .85fr;
-    gap:1.5rem;
-  }
-  .values,
-  .team-grid,
-  .engage-grid{
-    display:grid;
-    gap:1.1rem;
-  }
-  
-  /* Responsive breakpoints */
-  @media (max-width:980px){ .grid-2{grid-template-columns:1fr} }
-  @media (min-width:700px){
-    .team-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .values{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .engage-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  }
-  @media (max-width:699px){
-    .team-grid,.values,.engage-grid{grid-template-columns:1fr}
-  }
-  
-  /* ==================== NAVBAR ==================== */
-  nav{
-    background:var(--primary);
-    padding:.8rem 0;
-    position:sticky;top:0;z-index:1000;
-    box-shadow:0 1px 6px rgba(0,0,0,.12);
-  }
-  nav .container{display:flex;justify-content:space-between;align-items:center;gap:1rem}
-  .logo{font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:.3px}
-  nav ul{list-style:none;display:flex;gap:1rem;flex-wrap:wrap}
-  nav a{color:#fff;font-weight:600;opacity:.95;transition:opacity .2s,color .2s}
-  nav a:hover{opacity:1}
-  
-  /* Active nav underline driven by JS adding .active */
-  nav ul li a.active{position:relative}
-  nav ul li a.active::after{
-    content:"";position:absolute;left:0;right:0;bottom:-8px;margin:auto;
-    width:26px;height:3px;border-radius:2px;background:#fff;opacity:.9;
-  }
-  
-  /* Mobile nav */
-  nav .menu-toggle{display:none;background:none;border:0;color:#fff;font-size:1.25rem}
-  @media (max-width:720px){
-    nav ul{display:none;flex-direction:column;gap:.6rem}
-    nav ul.show{display:flex}
-    nav .menu-toggle{display:block}
-  }
-  
-  /* ==================== HERO (HOME) ==================== */
-  .home-hero{
-    /* If you don't want a background image, comment the next 2 lines
-       and keep background-color only */
-    background:
-      linear-gradient(rgba(107,145,179,.85),rgba(107,145,179,.85)),
-      url('https://via.placeholder.com/1600x450') center/cover no-repeat;
-    background-color:#6B91B3;
-    color:#fff;
-    text-align:center;
-    /* tighter bottom padding to kill the big gap under the quote */
-    padding:4rem 0 2rem;
-    border-bottom:4px solid var(--primary-dark);
-    position:relative; /* for ornaments */
-    overflow:hidden;
-  }
-  .home-hero h1{font-size:2.5rem}
-  
-  /* reduce gap between hero and first section */
-  .home-hero + .section {
-    padding-top: 1.2rem !important;
-  }
-  
-  /* Tight quote spacing in hero */
-  .hero-quote{font-size:1.15rem;text-align:center;font-style:italic;margin:0}
-  .hero-quote p{margin:0}
-  .hero-quote cite{display:block;margin-top:.2rem;opacity:.9;font-style:normal}
-  
-  /* Corner ornaments in hero */
-  .hero-ornament{
-    position:absolute;
-    width:48px;height:48px;opacity:.85;pointer-events:none;
-  }
-  .hero-ornament.left{top:10px;left:10px;transform:scaleX(-1) rotate(90deg)}
-  .hero-ornament.right{top:10px;right:10px;transform:rotate(90deg)}
-  /* Use bottom positioning so they don't force hero to be taller */
-  .hero-ornament.bottomleft{bottom:10px;left:10px;transform:scaleX(-1) rotate(180deg)}
-  .hero-ornament.bottomright{bottom:10px;right:10px;transform:rotate(180deg)}
-  
-  /* ==================== CARDS & PANELS ==================== */
-  .card,
-  .card-soft,
-  .mission-card,
-  .side-panel,
-  .gi-card,
-  .newsletter-copy,
-  .value-card,
-  .member-card,
-  .gradient-card{
-    background:var(--card);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow-sm);
-    padding:1.25rem;
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .card:hover,.card-soft:hover,.mission-card:hover,.side-panel:hover,
-  .gi-card:hover,.value-card:hover,.member-card:hover,.gradient-card:hover{
-    transform:translateY(-4px);box-shadow:var(--shadow-md);
-  }
-  
-  /* “Soft” article style */
-  .card-soft{padding:1.5rem}
-  .card-soft h2{color:var(--primary-dark);margin-bottom:.6rem}
-  .card-soft p + p{margin-top:.6rem}
-  
-  /* Icon badges */
-  .icon,.gi-icon-inline{
-    display:inline-flex;align-items:center;justify-content:center;
-    width:44px;height:44px;border-radius:12px;background:var(--accent1);
-    font-size:22px;flex-shrink:0;margin-right:.5rem;
-  }
-  
-  /* Buttons (generic) */
-  .btn{
-    display:inline-block;padding:.7rem 1.2rem;border-radius:10px;
-    font-weight:700;
-    transition:transform .15s, box-shadow .15s, background .2s, color .2s;
-  }
-  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12)}
-  .btn-dark{background:var(--primary-dark);color:#fff}
-  .btn-dark:hover{background:var(--primary)}
-  .btn-light{background:#fff;color:var(--primary-dark);border:1px solid var(--primary-light)}
-  .btn-outline{background:transparent;color:#fff;border:2px solid var(--primary-light)}
-  .btn-outline:hover{background:var(--primary-light);color:var(--primary-dark)}
-  
-  /* Underline for all h2s (you can remove if not wanted globally) */
-  h2::after{
-    content:"";display:block;width:180px;height:4px;background:var(--primary-dark);
-    margin:.6rem auto 0;border-radius:3px;
-  }
-  
-  /* ==================== ABOUT PAGE ==================== */
-  .about-split{align-items:start}
-  .about-story .about-lead{font-size:1.05rem;margin-bottom:.5rem}
-  .story-highlight{
-    margin-top:1rem;background:#f0f6ff;border:1px solid var(--primary-light);
-    border-radius:var(--radius);padding:1rem;
-  }
-  .about-highlight{display:grid;gap:1rem}
-  .gradient-card{color:#fff;border:none;overflow:hidden;position:relative}
-  .gradient-a{background:linear-gradient(135deg,#6B91B3 0%,#4C6C85 100%)}
-  .gradient-b{background:linear-gradient(135deg,#89A9C4 0%,#6B91B3 100%)}
-  .gradient-card h3{margin-bottom:.4rem}
-  
-  /* ==================== TEAM (ABOUT) ==================== */
-  .team-grid{margin-top:1.2rem}
-  @media (min-width:960px){ .team-grid{grid-template-columns:repeat(4,minmax(0,1fr))} }
-  .member-card{text-align:center;padding:1.25rem}
-  .member-card .avatar{
-    width:140px;height:140px;border-radius:50%;object-fit:cover;margin:0 auto .8rem;border:4px solid #fff;box-shadow:var(--shadow-sm)
-  }
-  .member-name{font-size:1.05rem;color:var(--primary-dark);margin-bottom:.2rem}
-  .member-role{font-weight:700;opacity:.8;margin-bottom:.3rem}
-  .member-bio{font-size:.95rem;opacity:.9}
-  
-  /* ==================== EVENTS PAGE ==================== */
-  /* Keep 3-across layout and make cards equal height per row */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
-    grid-auto-rows: 1fr;
-    gap: 1 rem;
-      /*align-items: stretch;*/
-  }
-  .grid > .card{grid-column:span 12}
-  @media (min-width:560px){ 
-    .grid > .card{
-      grid-column:span 6
-    } 
-  }
-  @media (min-width:920px){
-     .grid > .card{
-      grid-column:span 4
-    } 
-  }
-  .grid > .card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+:root {
+  --primary: #6B91B3;
+  --primary-light: #89A9C4;
+  --primary-dark: #547997;
+  --accent1: #A3BDD3;
+  --accent2: #4C6C85;
+  --text-dark: #2f3a4a;
+  --bg: #f5faff;
+  --card: #ffffff;
+  --radius: 14px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 2px 12px rgba(0,0,0,.06);
+  --shadow-md: 0 6px 18px rgba(0,0,0,.10);
 }
-  
+
+/* ==================== RESET / BASE ==================== */
+* { margin:0; padding:0; box-sizing:border-box }
+html,body { height:100% }
+body {
+  font-family:"Times New Roman", Times, serif;
+  background:var(--bg);
+  color:var(--text-dark);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img { max-width:100%; display:block }
+a { color:inherit; text-decoration:none }
+
+/* ==================== LAYOUT ==================== */
+.container { width:92%; max-width:1100px; margin:auto }
+.section { padding:3rem 0 }
+.section.alt { background:#eef6ff }
+.section-title { color:var(--primary-dark); text-align:center; margin-bottom:1rem }
+.center { text-align:center }
+.narrow { max-width:780px; margin-inline:auto }
+.pad-top { margin-top:1rem }
+
+/* ==================== GRID SYSTEM ==================== */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-  align-items: start; /* 👈 Force every grid item to align to top edge */
+  display:grid;
+  grid-template-columns:repeat(12, 1fr);
+  gap:1rem;
+  align-items:start; /* keeps top alignment */
 }
 
-/* Center event section headings */
-.section h2 {
-  text-align: center;
+.grid-2 {
+  display:grid;
+  grid-template-columns:1.25fr .85fr;
+  gap:1.5rem;
+}
+@media (max-width:980px){ .grid-2{grid-template-columns:1fr} }
+
+.values,
+.team-grid,
+.engage-grid {
+  display:grid;
+  gap:1.1rem;
+}
+@media (min-width:700px){
+  .team-grid { grid-template-columns:repeat(3,1fr) }
+  .values { grid-template-columns:repeat(3,1fr) }
+  .engage-grid { grid-template-columns:repeat(3,1fr) }
+}
+@media (max-width:699px){
+  .team-grid, .values, .engage-grid { grid-template-columns:1fr }
 }
 
-  /* Center event section headings */
-  .section h2{text-align:center}
-  
-  /* ==================== GET INVOLVED ==================== */
-  .newsletter-wrap {
-  display: flex;
-  align-items: flex-start; /* align from top, not middle */
-  justify-content: center;
+/* ==================== NAVBAR ==================== */
+nav {
+  background:var(--primary);
+  padding:.8rem 0;
+  position:sticky; top:0; z-index:1000;
+  box-shadow:0 1px 6px rgba(0,0,0,.12);
+}
+nav .container {
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+}
+.logo { font-size:1.5rem; font-weight:700; color:#fff; letter-spacing:.3px }
+nav ul { list-style:none; display:flex; gap:1rem; flex-wrap:wrap }
+nav a { color:#fff; font-weight:600; opacity:.95; transition:opacity .2s }
+nav a:hover { opacity:1 }
+
+/* Active nav underline */
+nav ul li a.active { position:relative }
+nav ul li a.active::after {
+  content:""; position:absolute; left:0; right:0; bottom:-8px; margin:auto;
+  width:26px; height:3px; border-radius:2px; background:#fff; opacity:.9;
 }
 
-.newsletter-copy h2 {
-  border-bottom: 1px solid #ddd; 
-}
-  
-  /* ==================== MISSION PAGE ==================== */
-  .mission-card .mission-title{color:var(--primary-dark);margin-bottom:.6rem;text-align:center;display:block}
-  .mission-card .lead{font-size:1.02rem}
-  
-  /* Single-panel checklist (no underline under title) */
-  .side-panel{
-    position:relative;
-    padding:1.25rem 1.25rem 1rem;
-    border-radius:var(--radius);
-    background:#fff;
-    box-shadow:var(--shadow-sm);
-    overflow:hidden;
-  }
-  .side-panel::after{
-    content:"";
-    position:absolute;left:0;right:0;top:0;height:6px;
-    background:linear-gradient(90deg,var(--primary-dark),var(--primary));
-  }
-  .panel-title{color:var(--primary-dark);margin-bottom:.5rem;text-align:center}
-  .side-panel .panel-title::after{display:none} /* remove decorative underline */
-  
-  .do-list{list-style:none;display:grid;gap:.2rem;margin-top:.5rem}
-  .do-list li{
-    position:relative;
-    padding:.6rem .25rem .6rem 2rem;
-    border-top:1px dashed rgba(84,121,151,.35);
-    line-height:1.55;font-size:.99rem;
-  }
-  .do-list li:first-child{border-top:0}
-  .do-list li::before{
-    content:"✓";
-    position:absolute;left:.2rem;top:50%;transform:translateY(-50%);
-    width:1.35rem;height:1.35rem;line-height:1.35rem;text-align:center;border-radius:50%;
-    font-weight:800;background:var(--accent1);color:var(--accent2);
-  }
-  
-  /* Make columns equal height on wide screens */
-  .grid-2{align-items:stretch}
-  .mission-card,.side-panel{height:100%}
-  
-  
-  /* ===== PAGE HERO (Generic) ===== */
-  .page-hero {
-    background-color: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 3rem 0;
-    position: relative; /* so ornaments can be positioned */
-  }
-  .page-hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.4rem;
-  }
-  .page-hero p {
-    font-size: 1.05rem;
-    opacity: 0.9;
-  }
-  
-  /* ===== Mission Hero (specific) ===== */
-  .mission-hero {
-    background: linear-gradient(90deg, var(--primary-dark), var(--primary));
-  }
-  
-  /* Optional: add ornaments in mission hero too */
-  .page-hero .hero-ornament {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    opacity: 0.85;
-    pointer-events: none;
-  }
-  .page-hero .hero-ornament.left {
-    top: 10px;
-    left: 10px;
-    transform: scaleX(-1) rotate(90deg);
-  }
-  .page-hero .hero-ornament.right {
-    top: 10px;
-    right: 10px;
-    transform: rotate(90deg);
-  }
-
-
-  /*==================== SUPPORT US ==================================*/
-  /*.donation-section{
-    padding:4rem 1 rem;
-    background-color:#edd4b6;
-  }
-  .donation-container {
-    background-color:#fff;
-    max-width:500px;
-    margin:0 auto;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow:#2f3a4a, 0 6px 15px;
+/* Mobile nav */
+nav .menu-toggle { display:none; background:none; border:0; color:#fff; font-size:1.25rem }
+@media (max-width:720px){
+  nav ul { display:none; flex-direction:column; gap:.6rem }
+  nav ul.show { display:flex }
+  nav .menu-toggle { display:block }
 }
 
-    .donation-container h2 {
-    text-align: center;        
-    margin-bottom: 1rem;
+/* ==================== HERO ==================== */
+.home-hero {
+  background:
+    linear-gradient(rgba(107,145,179,.85),rgba(107,145,179,.85)),
+    url('https://via.placeholder.com/1600x450') center/cover no-repeat;
+  background-color:#6B91B3;
+  color:#fff; text-align:center;
+  padding:4rem 0 2rem;
+  border-bottom:4px solid var(--primary-dark);
+  position:relative; overflow:hidden;
+}
+.home-hero h1 { font-size:2.5rem }
+.home-hero + .section { padding-top:1.2rem !important }
+.hero-quote { font-size:1.15rem; text-align:center; font-style:italic }
+.hero-ornament { position:absolute; width:48px; height:48px; opacity:.85; pointer-events:none }
+
+/* ==================== CARDS ==================== */
+.card {
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  padding:1.25rem;
+  transition:transform .18s ease, box-shadow .18s ease;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md) }
+
+/* Icon badges */
+.icon,.gi-icon-inline {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px;
+  border-radius:12px; background:var(--accent1);
+  font-size:22px; flex-shrink:0; margin-right:.5rem;
 }
 
-.donation-container p {
-    text-align: center;        
-    margin-bottom: 2rem;
+/* ==================== EVENTS PAGE ==================== */
+.grid > .card { grid-column:span 12 }
+@media (min-width:560px){
+  .grid > .card { grid-column:span 6 }
+}
+@media (min-width:920px){
+  .grid > .card { grid-column:span 4 }
 }
 
-.donation-form label {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-weight: bold;
+/* Section headings centered */
+.section h2 { text-align:center }
+
+/* Checklist-specific grid (used in do-list) */
+.do-list { list-style:none; display:grid; gap:.2rem; margin-top:.5rem }
+.do-list li {
+  position:relative;
+  padding:.6rem .25rem .6rem 2rem;
+  border-top:1px dashed rgba(84,121,151,.35);
+  line-height:1.55; font-size:.99rem;
+}
+.do-list li:first-child { border-top:0 }
+.do-list li::before {
+  content:"✓";
+  position:absolute; left:.2rem; top:50%; transform:translateY(-50%);
+  width:1.35rem; height:1.35rem; line-height:1.35rem; text-align:center;
+  border-radius:50%; font-weight:800;
+  background:var(--accent1); color:var(--accent2);
 }
 
-.optional {
-    font-weight: normal;
-    color: gray; 
-    font-size: 0.9em;
+/* ==================== PAGE HERO ==================== */
+.page-hero {
+  background-color:var(--primary);
+  color:white; text-align:center;
+  padding:3rem 0;
+  position:relative;
 }
+.page-hero h1 { font-size:2.2rem; margin-bottom:.4rem }
+.page-hero p { font-size:1.05rem; opacity:.9 }
 
-.donation-form input {
-    font-family: "Times New Roman", Times, serif; 
+/* ==================== FOOTER ==================== */
+.site-footer {
+  background:var(--accent2); color:#fff; text-align:center;
+  padding:1.5rem 1rem; font-size:.95rem; margin-top:2rem;
 }
-.donation-form textarea::placeholder {
-    font-family: "Times New Roman", Times, serif;
+.footer-content p { margin:.3rem 0 }
+.social-links {
+  margin-top:.5rem;
+  display:flex; justify-content:center; gap:1rem;
 }
-.donation-form textarea {
-    width: 100%;
-    padding: 0.6rem;
-    margin-bottom: 1.2rem; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+.social-links img { width:20px; height:20px }
 
-.button-container {
-    text-align: center; 
-}
 
-.donation-form button {
-    width: 100%;                 
-    padding: 0.75rem;
-    font-size: 1rem;
-    background-color: #4a90e2;  
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.donation-form button:hover {
-    background-color: #357ab8;  
-}
-  */
-  
-  /* ==================== QUOTE (NON-HERO USAGE) ==================== */
-  .quote-wrap{padding:2.2rem 0;background:#eaf2fb;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06)}
-  .hero-quote:not(.home-hero .hero-quote){font-size:1.15rem;text-align:center;font-style:italic}
-  .hero-quote:not(.home-hero .hero-quote) cite{display:block;margin-top:.4rem;opacity:.85;font-style:normal}
-  .fade-out{opacity:0;transition:opacity .3s}
-  #quoteText,#quoteAuthor{transition:opacity .3s}
-  
-  /* ==================== FOOTER ==================== */
-  .site-footer{
-    background:var(--accent2);color:#fff;text-align:center;
-    padding:1.5rem 1rem;font-size:.95rem;margin-top:2rem
-  }
-  .site-footer a{transition:color .2s}
-  .site-footer a:hover{color:var(--primary-light)}
-  .footer-content p{margin:.3rem 0}
-  .social-links{
-    margin-top:.5rem;
-    display:flex;flex-direction:row;justify-content:center;gap:1rem;
-  }
-  .social-links a{display:inline-flex;align-items:center;justify-content:center}
-  .social-links img{width:20px;height:20px;display:block}
-  
-  /* ==================== UTILITIES ==================== */
-  .page-hero .container > * + * ,
-  .mission-hero .container > * + * ,
-  .home-hero .container > * + * { margin-top:.4rem }
-  
-  .section p + .btn,
-  .card p + .btn,
-  .gi-card p + .btn { margin-top:.6rem }
-  
-  article + article{margin-top:1rem}
-  
-  /* Give inner-page headings consistent spacing */
-  .container > h2 + p.center,
-  .container > .section-title + p.center { margin-top:.4rem }
-  
-  /* Tighten bottom padding when followed by footer */
-  .section:last-of-type{padding-bottom:2.4rem}
-  
-  /* ==================== ACCESSIBILITY ==================== */
-  :focus-visible{outline:3px solid var(--primary-light);outline-offset:2px}
