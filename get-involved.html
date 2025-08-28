@@ -20,7 +20,6 @@
         <li><a href="about.html">About</a></li>
         <li><a href="events.html" aria-current="page">Events</a></li>
         <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="support.html">Support Us</a></li>
       </ul>
     </div>
   </nav>
@@ -75,23 +74,74 @@
   </section>
 <!-- Newsletter / Info Sessions -->
 <section class="section alt">
-    <div class="container newsletter-wrap center">
-      <div class="newsletter-copy narrow">
-        <h2>Stay in the Loop</h2>
-        <p>
-          Sign up for updates and we’ll send newsletters, event reminders, and info session invitations.  
-          Members are automatically added, but anyone can subscribe.  
-          <br><br>
-          ℹ️ Info sessions and volunteer sign-ups are announced first by email.  
-          Follow us on Instagram 
-          <a href="https://instagram.com/tibetanyouthinmedicine" target="_blank">@tibetanyouthinmedicine</a> 
-          for quick updates.
-        </p>
-        <!-- Replace # with your subscribe link -->
+  <div class="container newsletter-wrap" 
+       style="max-width:900px; margin:auto;">
+
+    <!-- Big Box Around Everything -->
+    <div style="border:1px solid #ccc; border-radius:10px; padding:20px; background:#fafafa; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+
+  <!-- Heading centered with underline -->
+  <div style="text-align:center;">
+    <h2 style="margin:0; padding:0 0 8px 0; display:inline-block;">
+      Stay in the Loop
+    </h2>
+  </div>
+
+      <!-- Content area (divider starts below heading) -->
+      <div style="display:flex; gap:40px; align-items:flex-start; margin-top:20px;">
+        
+        <!-- Left Column: Info Copy with Divider BELOW heading -->
+        <div style="flex:1; border-right:2px solid #ddd; padding-right:30px; text-align:left;">
+
+          <p>
+            Sign up for updates and we’ll send newsletters, event reminders, and info session invitations.  
+            Members are automatically added, but anyone can subscribe.  
+            <br><br>
+            ℹ️ Info sessions and volunteer sign-ups are announced first by email.  
+            Follow us on Instagram 
+            <a href="https://instagram.com/tibetanyouthinmedicine" target="_blank">@tibetanyouthinmedicine</a> 
+            for quick updates.
+          </p>
+        </div>
+
+        <!-- Right Column: Newsletter Form -->
+        <div style="flex:1; padding-left:30px;">
+          <form
+  action="https://formspree.io/f/mzzazewy"
+  method="POST"></form>
+            <div>
+              <label for="email" style="font-weight:bold;">Email Address</label><br>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Enter your email" 
+                required 
+                style="padding:12px; width:100%; border:1px solid #ccc; border-radius:6px; margin-top:5px;"
+              >
+            </div>
+
+            <div>
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">I agree to receive monthly updates and allow you to use my email for newsletters.</label>
+            </div>
+
+            <button type="submit" class="btn btn-dark" 
+                    style="padding:12px 20px; border-radius:6px; font-size:16px; cursor:pointer; align-self:flex-start;">
+              Subscribe
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Replace # with your subscribe link 
         <a class="btn btn-dark" href="#" target="_blank">Subscribe to Updates</a>
       </div>
     </div>
-  </section>
+  </section>-->
   
 
 

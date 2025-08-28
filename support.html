@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Navbar -->
+   /*NAVI BAR*/
     <nav>
         <div class="container">
           <a href="index.html" class="logo">TYM</a>
@@ -27,7 +27,7 @@
       
     
 
-      <!-- Hero -->
+      Hero 
     <header class="page-hero mission-hero">
         <div class="container">
         <h1>Support Us</h1>
@@ -35,18 +35,36 @@
         </div>
     </header>
     
-
-    <!-- Page Content -->
-    <section class="section">
-        <div class="container">
-            <h2>Donate</h2>
-            <p>
-                Write your organization's mission here. Explain your values, vision, and what you aim to achieve.
-            </p>
+      <section class="donation-section">
+       <div class="donation-container">
+          <h2>This page will be open for donations soon. Thank you for your support!</h2> 
         </div>
-    </section>
+      </section>
+    /* Page Content */
+   /*WORK ON LATER*/
+     <section class="donation-section"> 
+        <div class="donation-container">
+          <h2>Make a donation</h2> 
+          <form class="donation-form" action="mailto:tibetanyouthinmedicine@gmail.com" method="POST" enctype="text/plain">
+            <label for="name">Full Name <span class="optional">(Optional)</span></label>
+            <input type="text" id="name" name="name" placeholder="Your name">
 
-  <!-- Footer -->
+            <label for="email">Email Address <span class="optional">(Optional)</span></label>
+            <input type="email" id="email" name="email" placeholder="Your email">
+
+            <label for="amount">Donation Amount (USD)</label>
+            <input type="number" id="amount" name="amount" placeholder="Enter amount" min="1" required>
+
+            <label for="message">Message <span class="optional">(Optional)</span></label>
+            <textarea id="message" name="message" rows="4" placeholder="Write a message..."></textarea>
+
+            <div class="button-container">
+                <button type="submit">Submit Donation</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
   <footer class="site-footer">
     <div class="footer-content">
       <p>© 2025 TYM. All rights reserved.</p>
