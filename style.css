@@ -4,7 +4,7 @@
   --primary-light: #89A9C4;
   --primary-dark: #547997;
   --accent1: #A3BDD3;
-  --accent2: #4C6C85;
+  --accent2: #4c6c85;
   --text-dark: #2f3a4a;
   --bg: #f5faff;
   --card: #ffffff;
@@ -151,7 +151,7 @@ nav .menu-toggle { display:none; background:none; border:0; color:#fff; font-siz
 .do-list li {
   position:relative;
   padding:.6rem .25rem .6rem 2rem;
-  border-top:1px dashed rgba(84,121,151,.35);
+  border-top:1px dashed rgba(84, 121, 151, 0.349);
   line-height:1.55; font-size:.99rem;
 }
 .do-list li:first-child { border-top:0 }
@@ -161,6 +161,38 @@ nav .menu-toggle { display:none; background:none; border:0; color:#fff; font-siz
   width:1.35rem; height:1.35rem; line-height:1.35rem; text-align:center;
   border-radius:50%; font-weight:800;
   background:var(--accent1); color:var(--accent2);
+}
+
+/* =====================about ============*/
+/* Grid split: left (story), right (roots+vision stacked) */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* left half / right half */
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Left big story card */
+.main-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right stacked cards */
+.about-highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Solid blue highlight box */
+.sub-card.blue-box {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  color: #fff;
+  background-color: #4c6c85; /* solid blue (Tailwind "blue-600") */
+  box-shadow: 0 4px 12px #4c6c85(84,121,151,.35);
 }
 
 /* ==================== PAGE HERO ==================== */
