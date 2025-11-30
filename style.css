@@ -77,7 +77,22 @@ nav {
 nav .container {
   display:flex; justify-content:space-between; align-items:center; gap:1rem;
 }
-.logo { font-size:1.5rem; font-weight:700; color:#fff; letter-spacing:.3px }
+.logo {
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
+  font-size:1.5rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:.3px;
+}
+.site-logo {
+  width:36px;
+  height:36px;
+  object-fit:contain;
+  display:block;
+}
+.logo-text { display:inline-block }
 nav ul { list-style:none; display:flex; gap:1rem; flex-wrap:wrap }
 nav a { color:#fff; font-weight:600; opacity:.95; transition:opacity .2s }
 nav a:hover { opacity:1 }
@@ -95,6 +110,12 @@ nav .menu-toggle { display:none; background:none; border:0; color:#fff; font-siz
   nav ul { display:none; flex-direction:column; gap:.6rem }
   nav ul.show { display:flex }
   nav .menu-toggle { display:block }
+}
+
+/* Make logo slightly smaller on very small screens */
+@media (max-width:420px){
+  .site-logo { width:28px; height:28px }
+  .logo { font-size:1.125rem }
 }
 
 /* ==================== HERO ==================== */
